@@ -1,50 +1,34 @@
-//Modules
-require("dotenv").config();
 const express = require("express");
-const bodyParser = require("body-parser");
 const path = require("path");
-const cors = require("cors");
+const generatePassword = require("password-generator");
 
-//Imports
-const contentRoute = require("./Routes/Routes");
-const adminRoute = require("./Routes/adminRoute");
-
-//Middlewares
 const app = express();
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/Assets", express.static("Assets"));
 
-app.use("/az", contentRoute);
-app.use("/az", adminRoute);
-app.use("api/test", (req, res) => {
-  res.send("Hello World!");
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "client/build")));
+
+// Put all API endpoints under '/api'
+app.get("/api/passwords", (req, res) => {
+  const count = 5;
+
+  // Generate some passwords
+  const passwords = Array.from(Array(count).keys()).map((i) =>
+    generatePassword(12, false)
+  );
+
+  // Return them as json
+  res.json(passwords);
+
+  console.log(`Sent ${count} passwords`);
 });
-// if (process.env.NODE_ENV === "production") {
-// Exprees will serve up production assets
-app.use(express.static(path.join(__dirname, "cms-web/build")));
 
-// Express serve up index.html file if it doesn't recognize route
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/cms-web/build/index.html"));
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
-// }
 
-//connect with DB
-// con.connect((err) => {
-//   if (err) {
-//     throw err;
-//   }
-//   console.log("$$$ CONNECTED TO DATABASE $$$");
-// });
+const port = process.env.PORT || 5000;
+app.listen(port);
 
-//Route
-
-//PORT
-const port = process.env.PORT || 3000;
-
-//RUN
-app.listen(port, () => {
-  console.log(`### DB IS CONNECTED ON ${port} ###`);
-});
+console.log(`Password generator listening on ${port}`);
