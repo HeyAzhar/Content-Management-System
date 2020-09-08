@@ -1,34 +1,50 @@
+//Modules
+require("dotenv").config();
 const express = require("express");
+const bodyParser = require("body-parser");
 const path = require("path");
-const generatePassword = require("password-generator");
+const cors = require("cors");
 
+//Imports
+const contentRoute = require("./Routes/Routes");
+const adminRoute = require("./Routes/adminRoute");
+
+//Middlewares
 const app = express();
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/Assets", express.static("Assets"));
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, "client/build")));
+// if (process.env.NODE_ENV === "production") {
+// Exprees will serve up production assets
+app.use(express.static(path.join(__dirname, "cms-web/build")));
 
-// Put all API endpoints under '/api'
-app.get("/api/passwords", (req, res) => {
-  const count = 5;
-
-  // Generate some passwords
-  const passwords = Array.from(Array(count).keys()).map((i) =>
-    generatePassword(12, false)
-  );
-
-  // Return them as json
-  res.json(passwords);
-
-  console.log(`Sent ${count} passwords`);
+app.use("/az", contentRoute);
+app.use("/az", adminRoute);
+app.use("/az/test", (req, res) => {
+  res.send("Hello World!");
 });
-
-// The "catchall" handler: for any request that doesn't
-// match one above, send back React's index.html file.
+// Express serve up index.html file if it doesn't recognize route
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+  res.sendFile(path.join(__dirname + "/cms-web/build/index.html"));
 });
+// }
 
-const port = process.env.PORT || 5000;
-app.listen(port);
+//connect with DB
+// con.connect((err) => {
+//   if (err) {
+//     throw err;
+//   }
+//   console.log("$$$ CONNECTED TO DATABASE $$$");
+// });
 
-console.log(`Password generator listening on ${port}`);
+//Route
+
+//PORT
+const port = process.env.PORT || 3000;
+
+//RUN
+app.listen(port, () => {
+  console.log(`### DB IS CONNECTED ON ${port} ###`);
+});
