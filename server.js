@@ -16,6 +16,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/Assets", express.static("Assets"));
 
+app.use("/az", contentRoute);
+app.use("/az", adminRoute);
+app.use("api/test", (req, res) => {
+  res.send("Hello World!");
+});
 // if (process.env.NODE_ENV === "production") {
 // Exprees will serve up production assets
 app.use(express.static(path.join(__dirname, "cms-web/build")));
@@ -35,8 +40,6 @@ app.get("*", (req, res) => {
 // });
 
 //Route
-app.use("/az", contentRoute);
-app.use("/az", adminRoute);
 
 //PORT
 const port = process.env.PORT || 3000;
