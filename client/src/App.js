@@ -28,7 +28,7 @@ const App = () => {
   const [content, setContent] = useState({});
   const [checkLog, setCheckLog] = useState(false);
   const [token, setToken] = useState(null);
-  const API = "http://localhost:5000/";
+  const API = "https://cms-webapp.herokuapp.com/";
 
   const fetchContnet = async () => {
     try {
