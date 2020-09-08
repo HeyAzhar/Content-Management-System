@@ -18,7 +18,7 @@ app.use("/Assets", express.static("Assets"));
 
 // if (process.env.NODE_ENV === "production") {
 // Exprees will serve up production assets
-app.use(express.static(path.join(__dirname, "./client/build")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 app.use("/az", contentRoute);
 app.use("/az", adminRoute);
@@ -27,7 +27,7 @@ app.use("/az/test", (req, res) => {
 });
 // Express serve up index.html file if it doesn't recognize route
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 // }
 
