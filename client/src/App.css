@@ -1,0 +1,296 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:wght@500&display=swap");
+
+/* font-family: 'Anton', sans-serif;
+font-family: 'Playfair Display', serif; */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  font-family: "Playfair Display", serif;
+}
+
+body {
+  margin: 0;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+.logo {
+  font-size: 2em;
+  padding: 0%;
+  margin: 0 1em 0 0.6em;
+}
+
+.navBar {
+  font-size: 1.2em;
+  box-shadow: #202020 0px 0px 15px;
+  position: sticky;
+  top: -15px;
+  z-index: 999;
+}
+.imageSection {
+  display: flex;
+  height: 80vh;
+  margin-top: 2rem;
+  padding-left: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.heroText {
+  font-family: "Anton", sans-serif;
+  display: flex;
+  margin-left: 2rem;
+  height: 80vh;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.heroText h1 {
+  word-wrap: normal;
+  text-transform: uppercase;
+  font-size: 8em;
+  text-shadow: 5px 10px 20px #20202084;
+}
+.myBtn {
+  margin-top: -2em;
+  margin-left: 2em;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+}
+.adminBtn,
+.demoBtn {
+  margin: 2px 1em;
+  width: 8em;
+  height: 3em;
+  border-radius: 0.3em;
+}
+.headerImage {
+  object-fit: cover;
+  width: 100%;
+  height: 75vh;
+  border-radius: 2.5em 0 0 2.5em;
+  box-shadow: 0 40px 50px #20202080;
+}
+.infoSec {
+  min-height: 80vh;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.icon {
+  width: 11rem;
+  padding-bottom: 2rem;
+}
+.infoCard {
+  /* box-shadow: #20202080 -1px 8px 20px; */
+  border-radius: 5%;
+  text-align: center;
+  padding: 1rem;
+  margin: 1.5em auto 1.5em auto;
+  max-width: 21rem;
+  min-height: 28rem;
+  overflow: hidden;
+}
+/* .infoCard:hover {
+  box-shadow: #c7ea46 0px 0px 20px;
+  transform: scale3d();
+} */
+
+.cardTitle h3 {
+  text-decoration: underline;
+  text-align: left;
+}
+.infoCard p {
+  text-align: left;
+}
+.custom-toggler {
+  margin-left: 0%;
+}
+.custom-toggler:focus {
+  outline: none;
+}
+.footer {
+  opacity: 0.8;
+  filter: invert(1);
+  backdrop-filter: hue-rotate(150deg);
+  border-radius: 2em 2em 0 0;
+  width: 100%;
+  height: 40vh;
+  padding: 1em;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.credit {
+  opacity: 0.8;
+  filter: invert(1);
+  backdrop-filter: hue-rotate(150deg);
+  width: 100%;
+  font-size: 0.7em;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.form {
+  background-color: #202020;
+  color: #c7ea46;
+  position: sticky;
+  top: 0%;
+  padding: 1em;
+  height: 100vh;
+  border-right: solid 2px #c7ea46;
+  overflow: scroll;
+  z-index: 999;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.form::-webkit-scrollbar {
+  display: none;
+}
+.formTitle {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1em;
+  min-height: 5em;
+  border-bottom: solid 2px #c7ea46;
+}
+.formDiv {
+  padding: 0.5em;
+  border-radius: 0.5em;
+  border: solid 1px #647622;
+  margin-bottom: 1em;
+}
+.applyBtn {
+  background-color: #c7ea46;
+  border: solid 1px #c7ea46;
+  border-radius: 0.3em;
+  outline: none;
+  color: #202020;
+  width: 100%;
+  text-align: center;
+  margin: 0.2em 0;
+  padding: 0.5em;
+}
+.applyBtn:hover {
+  background-color: #202020;
+  color: #c7ea46;
+}
+.applyBtn:focus {
+  outline: none;
+}
+.backBtn {
+  background-color: #202020;
+  border: solid 1px #c7ea46;
+  border-radius: 0.3em;
+  outline: none;
+  color: #c7ea46;
+  width: 100%;
+  text-align: center;
+  margin: 0.2em 0;
+  padding: 0.5em;
+}
+.backBtn:hover {
+  background-color: #c7ea46;
+  color: #202020;
+}
+.backBtn:focus {
+  outline: none;
+}
+.colorButton {
+  width: 100%;
+  height: 1.6em;
+  border: solid 0.2em white;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+.colorCover {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+.colorPattle {
+  position: absolute;
+  z-index: 9;
+}
+
+/* Admin */
+.adminFormDiv {
+  background-image: url("./Assets/color-background.jpg");
+  background-repeat: no-repeat;
+  background-color: #202020;
+  background-size: cover;
+  height: 100vh;
+  color: #ffffff;
+  text-shadow: 0 0 15px #202020d4;
+  overflow: hidden;
+}
+.adminSlide {
+  background-image: url("./Assets/adminSlide.png");
+  background-repeat: no-repeat;
+  background-color: #a5f3ff;
+  background-size: contain;
+  background-position: center;
+  height: 100vh;
+}
+.adminForm {
+  backdrop-filter: blur(50px);
+  border-radius: 0.7em;
+  padding: 5em 2em;
+  margin: 8em auto;
+  min-width: 20em;
+  max-width: 35em;
+  height: 28em;
+}
+.login {
+  background-color: #202020;
+  color: #fff;
+  margin: 0.2em 10%;
+  padding: 0.5em;
+  text-transform: uppercase;
+  width: 80%;
+  border: solid 2px #202020;
+  border-radius: 3em;
+}
+.login:hover {
+  background-color: transparent;
+  color: #202020;
+}
+.login:focus {
+  outline: none;
+}
+.home {
+  background-color: transparent;
+  color: #202020;
+  margin: 0.2em 10%;
+  padding: 0.5em;
+  text-transform: uppercase;
+  width: 80%;
+  border: solid 2px #202020;
+  border-radius: 3em;
+}
+.home:hover {
+  background-color: #202020;
+  color: #fff;
+}
+.home:focus {
+  outline: none;
+}
