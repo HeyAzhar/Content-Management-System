@@ -66,7 +66,7 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     sessionStorage.setItem("content", JSON.stringify(content));
-    console.log(JSON.stringify(content));
+    // console.log(JSON.stringify(content));
     toast("Modified Successfully", { type: "success" });
   };
 
